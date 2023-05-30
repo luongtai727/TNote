@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">TNote</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="image_icon">icon</string>
+    <string name="welcome_back">Welcome \nback</string>
+    <string name="create_account">Create \naccount</string>
+
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="dont_have_an_account">"Don't have an account?"</string>
+    <string name="already_have_an_account">Already have an account?</string>
+
+    <string name="sign_up">Sign up</string>
+    <string name="logo">logo</string>
+    <string name="sign_in">Sign in</string>
+    <string name="create_account_no_down_line">Create account</string>
+    <string name="confirm_password">Confirm password</string>
+</resources>
