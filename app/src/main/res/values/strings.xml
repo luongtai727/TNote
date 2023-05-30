@@ -17,4 +17,12 @@
     <string name="sign_in">Sign in</string>
     <string name="create_account_no_down_line">Create account</string>
     <string name="confirm_password">Confirm password</string>
+    <string name="all_notes">All Notes</string>
+    <string name="add_note">add note</string>
+    <string name="logo_frame">logo frame</string>
+    <string name="no_notes_found">"No notes found "</string>
+    <string name="when_you_add_a_notes_you_will_see_your_notes">When you add a notes. You will see your notes here</string>
+    <string name="lorem_ipsum_dolor">Lorem ipsum dolor</string>
+    <string name="lorem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit_sed_do_eiusmod_tempor_incididunt_ut_labore_et_dolore_magna_aliqua_ut_enim_ad_minim_veniam_quis_nostrud_exercitation_ullamco_laboris_nisi_ut_aliquip_ex_ea_commodo_consequat_duis_aute_irure_dolor_in_reprehenderit_in_voluptate_velit_esse_cillum_dolore_eu_fugiat_nulla_pariatur_excepteur_sint_occaecat_cupidatat_non_proident_sunt_in_culpa_qui_officia_deserunt_mollit_anim_id_est_laborum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
+
 </resources>
