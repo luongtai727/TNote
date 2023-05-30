@@ -4,12 +4,14 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView.OnItemClickListener
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tnote.R
 import com.example.tnote.model.Note
 
-class NoteAdapter(private var notes: MutableList<Note>) : RecyclerView.Adapter<NoteAdapter.ViewHolder>() {
+class NoteAdapter(private var notes: MutableList<Note>,
+                  val onItemClickListener: (Note) -> Unit) : RecyclerView.Adapter<NoteAdapter.ViewHolder>() {
 
     @SuppressLint("NotifyDataSetChanged")
     fun setData(notes: MutableList<Note>){
@@ -37,6 +39,10 @@ class NoteAdapter(private var notes: MutableList<Note>) : RecyclerView.Adapter<N
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.tvTitle.text = notes[position].title
         holder.tvContent.text = notes[position].content
+
+        holder.itemView.setOnClickListener{
+            onItemClickListener(notes[position])
+        }
     }
 
     override fun getItemCount(): Int = notes.size

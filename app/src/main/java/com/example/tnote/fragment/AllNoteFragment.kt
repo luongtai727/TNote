@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.add
 import androidx.fragment.app.commit
 import androidx.fragment.app.setFragmentResultListener
@@ -14,6 +15,7 @@ import com.example.tnote.R
 import com.example.tnote.adapter.NoteAdapter
 import com.example.tnote.model.Note
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import java.util.Date
 
 class AllNoteFragment : Fragment() {
     private lateinit var rcvNote: RecyclerView
@@ -22,7 +24,7 @@ class AllNoteFragment : Fragment() {
     private lateinit var layoutNoteEmpty: View
     private lateinit var btnAddNote: FloatingActionButton
 
-    companion object{
+    companion object {
         const val REQUEST_KEY = "Add_fragment"
     }
 
@@ -64,7 +66,10 @@ class AllNoteFragment : Fragment() {
     }
 
     private fun setUpAdapter() {
-        noteAdapter = NoteAdapter(notes)
+        noteAdapter = NoteAdapter(notes) {
+            goToDetailFragment(note = it)
+        }
+
         rcvNote.apply {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = noteAdapter
@@ -90,13 +95,31 @@ class AllNoteFragment : Fragment() {
     }
 
     private fun listenResultFromAddFragment() {
-        setFragmentResultListener(REQUEST_KEY) {_, result->
+        setFragmentResultListener(REQUEST_KEY) { _, result ->
             val title = result.getString("title")
             val content = result.getString("content")
+            val timeCreate = Date().time
+            val id = timeCreate.toString()
 
-            notes.add(Note(title!!, content!!))
+            notes.add(Note(id, timeCreate, title!!, content!!))
             noteAdapter.setData(notes)
             checkNotesEmpty()
+        }
+    }
+
+    private fun goToDetailFragment(note: Note) {
+        parentFragmentManager.commit {
+            setReorderingAllowed(true)
+            add<DetailFragment>(
+                R.id.container_view,
+                "detail", bundleOf(
+                    "title" to note.title,
+                    "content" to note.content,
+                    "time" to note.timeCreate
+                )
+            )
+
+            addToBackStack(null)
         }
     }
 }
